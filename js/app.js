@@ -17,12 +17,13 @@ cardapio.eventos = {
     cardapio.metodos.obterItensCardapio();
     cardapio.metodos.carregarBotaoLigar();
     cardapio.metodos.carregarBotaoReserva();
+    cardapio.metodos.carregarBotaoWhats();
   },
 };
 
 cardapio.metodos = {
   // obtem a lista de itens do cardápio
-  obterItensCardapio: (categoria = "burgers", vermais = false) => {
+  obterItensCardapio: (categoria = "doces", vermais = false) => {
     var filtro = MENU[categoria];
     console.log(filtro);
 
@@ -479,6 +480,15 @@ cardapio.metodos = {
     let URL = `https://wa.me/${CELULAR_EMPRESA}?text=${encode}`;
 
     $("#btnReserva").attr("href", URL);
+  },
+
+  carregarBotaoWhats: () => {
+    var texto = "Olá! gostaria de fazer um pedido";
+
+    let encode = encodeURI(texto);
+    let URL = `https://wa.me/${CELULAR_EMPRESA}?text=${encode}`;
+
+    $("#btnWhatsContato").attr("href", URL);
   },
 
   // carrega o botão de ligar
